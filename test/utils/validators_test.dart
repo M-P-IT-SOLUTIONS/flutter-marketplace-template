@@ -15,7 +15,7 @@ void main() {
       expect(result, isA<ValidationError>());
       expect(
         (result as ValidationError).message,
-        'Email ma nieodpowiedni format',
+        'Email has invalid format',
       );
     });
 
@@ -25,7 +25,7 @@ void main() {
       expect(result, isA<ValidationError>());
       expect(
         (result as ValidationError).message,
-        'Hasło nie może zawierać spacji',
+        'Password cannot contain spaces',
       );
     });
 
@@ -35,7 +35,7 @@ void main() {
       expect(result, isA<ValidationError>());
       expect(
         (result as ValidationError).message,
-        'Hasło musi mieć co najmniej 6 znaków',
+        'Password must be at least 6 characters long',
       );
     });
 
@@ -52,7 +52,7 @@ void main() {
       );
 
       expect(result, isA<ValidationError>());
-      expect((result as ValidationError).message, 'Hasła się nie zgadzają');
+      expect((result as ValidationError).message, 'Passwords do not match');
     });
 
     test('accepts matching passwords', () {
@@ -70,7 +70,7 @@ void main() {
       expect(result, isA<ValidationError>());
       expect(
         (result as ValidationError).message,
-        'Pseudonim musi mieć od 3 do 20 znaków',
+        'Nickname must be between 3 and 20 characters',
       );
     });
 
@@ -80,7 +80,7 @@ void main() {
       expect(result, isA<ValidationError>());
       expect(
         (result as ValidationError).message,
-        'Pseudonim może zawierać tylko litery, cyfry, spacje, kropki, podkreślenia i myślniki',
+        'Nickname can only contain letters, digits, spaces, dots, underscores, and hyphens',
       );
     });
 
