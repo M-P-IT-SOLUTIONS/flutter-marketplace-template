@@ -364,11 +364,17 @@ class ChatServiceSupabase implements IChatService {
         .inFilter('id', chatIds)
         .execute()
         .map((rows) {
-          final updatedChats = <Chat>[];
-          for (final row in rows) {
-            final chat = Chat.fromJson(row);
-            updatedChats.add(chat);
-          }
+          final updatedChats = rows.map((row) => Chat.fromJson(row)).toList();
+
+          updatedChats.sort((a, b) {
+            final aTime = a.lastMessageAt ?? a.createdAt;
+            final bTime = b.lastMessageAt ?? b.createdAt;
+
+            final cmp = bTime.compareTo(aTime);
+            if (cmp != 0) return cmp;
+
+            return a.id.compareTo(b.id);
+          });
           return updatedChats;
         });
   }

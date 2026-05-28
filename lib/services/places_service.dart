@@ -6,7 +6,9 @@ import 'package:randki/models/category_tags_enums.dart';
 import 'package:randki/models/place.dart';
 import 'package:randki/services/fetch_response.dart';
 import 'package:randki/services/logger_service.dart';
-import 'package:randki/view_models/filter_view_model.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+SupabaseClient get _supabase => Supabase.instance.client;
 
 /// Service for fetching places from the database based on various filters and criteria.
 abstract class IPlacesService {
@@ -34,7 +36,7 @@ class PlacesServiceSupabase implements IPlacesService {
     required int pageNumber,
   }) async {
     return retry(
-      () => supabase.rpc(
+      () => _supabase.rpc(
         'get_places_with_details_v2',
         params: {
           '_categories':
@@ -64,7 +66,7 @@ class PlacesServiceSupabase implements IPlacesService {
     required int pageSize,
     required int pageNumber,
   }) async {
-    var querry = supabase
+    var querry = _supabase
         .from('places_tags_agg')
         .select('*, date_props(*, date_props_tags(tags(*))))');
 
@@ -226,7 +228,7 @@ class PlacesServiceSupabase implements IPlacesService {
     required int pageNumber,
     required String name,
   }) async {
-    var query = supabase
+    var query = _supabase
         .from('places_tags_agg')
         .select('*, date_props(*, date_props_tags(tags(*))))')
         .ilike('name', '%$name%')
@@ -246,7 +248,7 @@ class PlacesServiceSupabase implements IPlacesService {
   Future<FetchResponse<String?>> fetchPlaceName({required String placeId}) async {
     try {
       final response =
-          await supabase
+          await _supabase
               .from(places)
               .select('name')
               .eq('id', placeId)
@@ -269,7 +271,7 @@ class PlacesServiceSupabase implements IPlacesService {
     required List<String> ids,
   }) async {
     try {
-      final response = await supabase
+      final response = await _supabase
           .from(places)
           .select('id, name')
           .filter('deleted_at', 'is', null)

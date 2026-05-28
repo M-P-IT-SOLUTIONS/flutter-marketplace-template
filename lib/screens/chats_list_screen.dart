@@ -79,6 +79,8 @@ class _ChatsListScreenState extends State<ChatsListScreen> {
                       ? false
                       : (chatsListVM.chatIdlastReadAt[chat.id] == null
                           ? true
+                          : chatsListVM.chatIdlastReadAt[chat.id]!.$1 == null
+                          ? true
                           : chat.lastMessageAt!.isAfter(
                             chatsListVM.chatIdlastReadAt[chat.id]!.$1!,
                           ));
