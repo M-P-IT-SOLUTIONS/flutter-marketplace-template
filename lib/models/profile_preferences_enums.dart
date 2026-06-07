@@ -1,10 +1,7 @@
-import 'package:randki/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-enum AppLanguage {
-  pl,
-  en,
-}
+enum AppLanguage { pl, en }
 
 extension AppLanguageExtension on AppLanguage {
   String get label {
@@ -34,11 +31,7 @@ extension AppLanguageExtension on AppLanguage {
   }
 }
 
-enum AppThemeMode {
-  automatic,
-  light,
-  dark,
-}
+enum AppThemeMode { automatic, light, dark }
 
 extension AppThemeModeLabel on AppThemeMode {
   String label(BuildContext context) {
@@ -56,7 +49,6 @@ extension AppThemeModeLabel on AppThemeMode {
 }
 
 extension AppThemeModeExt on AppThemeMode {
-  
   ThemeMode toFlutter() {
     switch (this) {
       case AppThemeMode.light:
@@ -83,4 +75,3 @@ extension AppThemeModeExt on AppThemeMode {
     }
   }
 }
-

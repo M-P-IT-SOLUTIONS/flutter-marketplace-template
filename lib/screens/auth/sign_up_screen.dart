@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/view_models/auth_view_model.dart';
-import 'package:randki/screens/auth/sign_in_screen.dart';
-import 'package:randki/screens/loading_screen.dart';
-import 'package:randki/views/components/auth_text_field.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/adapters/app_bar.dart';
-import 'package:randki/views/components/error_message_widget.dart';
+import 'package:flutter_marketplace_template/view_models/auth_view_model.dart';
+import 'package:flutter_marketplace_template/screens/auth/sign_in_screen.dart';
+import 'package:flutter_marketplace_template/screens/loading_screen.dart';
+import 'package:flutter_marketplace_template/views/components/auth_text_field.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/views/components/error_message_widget.dart';
 
 /// Screen for signing up, where user enters email and password to create an account,
 /// also has option to go to sign in screen if user already has an account
@@ -164,9 +164,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           children: [
                                             TextSpan(
                                               text:
-                                                  '${AppLocalizations.of(
-                                                    context,
-                                                  )!.already_have_an_account}\n',
+                                                  '${AppLocalizations.of(context)!.already_have_an_account}\n',
                                               style: const TextStyle(
                                                 fontFamily: 'Mplus1p',
                                                 fontWeight: FontWeight.w300,

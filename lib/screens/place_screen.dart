@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:randki/functions.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/functions.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/screens/chat_screen.dart';
-import 'package:randki/services/chat_service.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/user_service.dart';
-import 'package:randki/view_models/favorite_places_view_model.dart';
-import 'package:randki/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/screens/chat_screen.dart';
+import 'package:flutter_marketplace_template/services/chat_service.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
+import 'package:flutter_marketplace_template/view_models/favorite_places_view_model.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 /// Screen displaying detailed information about a place
@@ -304,8 +304,7 @@ class PlaceScreen extends StatelessWidget {
                                 return Row(
                                   children: [
                                     FloatingActionButton(
-                                      heroTag:
-                                          null,
+                                      heroTag: null,
                                       onPressed: () {
                                         favVM.toggleFavorite(
                                           place.id,
@@ -354,7 +353,8 @@ class PlaceScreen extends StatelessWidget {
                                               receiverId: place.id,
                                               placeName: place.name,
                                             );
-                                        if (response is FetchOneSuccess<String>) {
+                                        if (response
+                                            is FetchOneSuccess<String>) {
                                           chatId = response.item;
                                         } else {
                                           return;
@@ -719,10 +719,7 @@ class PlaceScreen extends StatelessWidget {
                         context,
                       ).copyWith(dividerColor: Colors.transparent),
                       child: ExpansionTile(
-                        iconColor:
-                            Theme.of(
-                              context,
-                            ).colorScheme.primary,
+                        iconColor: Theme.of(context).colorScheme.primary,
                         collapsedIconColor:
                             Theme.of(context).colorScheme.primary,
 
@@ -869,10 +866,7 @@ class PlaceScreen extends StatelessWidget {
                         context,
                       ).copyWith(dividerColor: Colors.transparent),
                       child: ExpansionTile(
-                        iconColor:
-                            Theme.of(
-                              context,
-                            ).colorScheme.primary,
+                        iconColor: Theme.of(context).colorScheme.primary,
                         collapsedIconColor:
                             Theme.of(context).colorScheme.primary,
                         title: Text(
@@ -1353,9 +1347,7 @@ class _TagChip extends StatelessWidget {
     return IntrinsicWidth(
       child: Container(
         height: 20,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 8,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(8),

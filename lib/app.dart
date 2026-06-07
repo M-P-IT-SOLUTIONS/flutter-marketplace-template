@@ -3,26 +3,26 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/services/auth_service.dart';
-import 'package:randki/services/chat_service.dart';
-import 'package:randki/services/favorite_places_service.dart';
-import 'package:randki/services/places_service.dart';
-import 'package:randki/services/user_service.dart';
-import 'package:randki/main.dart';
-import 'package:randki/screens/auth/reset_password_screen_2.dart';
-import 'package:randki/view_models/auth_view_model.dart';
-import 'package:randki/screens/auth/auth_gate.dart';
-import 'package:randki/view_models/chat_view_model.dart';
-import 'package:randki/view_models/chats_list_view_model.dart';
-import 'package:randki/view_models/filter_view_model.dart';
-import 'package:randki/view_models/language_view_model.dart';
-import 'package:randki/view_models/navigation_view_model.dart';
-import 'package:randki/view_models/places_model.dart';
-import 'package:randki/view_models/profile_view_model.dart';
-import 'package:randki/view_models/favorite_places_view_model.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/view_models/theme_view_model.dart';
-import 'package:randki/theme/app_theme.dart';
+import 'package:flutter_marketplace_template/services/auth_service.dart';
+import 'package:flutter_marketplace_template/services/chat_service.dart';
+import 'package:flutter_marketplace_template/services/favorite_places_service.dart';
+import 'package:flutter_marketplace_template/services/places_service.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/screens/auth/reset_password_screen_2.dart';
+import 'package:flutter_marketplace_template/view_models/auth_view_model.dart';
+import 'package:flutter_marketplace_template/screens/auth/auth_gate.dart';
+import 'package:flutter_marketplace_template/view_models/chat_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/chats_list_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/language_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/navigation_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/places_model.dart';
+import 'package:flutter_marketplace_template/view_models/profile_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/favorite_places_view_model.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/view_models/theme_view_model.dart';
+import 'package:flutter_marketplace_template/theme/app_theme.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -44,9 +44,9 @@ class _MyAppState extends State<MyApp> {
     _authSub = supabase.auth.onAuthStateChange.listen((data) {
       debugPrint('Auth event: ${data.event}');
       if (data.event == AuthChangeEvent.passwordRecovery) {
-           navigatorKey.currentState?.push (
-            MaterialPageRoute(builder: (_) => const ResetPasswordScreen2()),
-          );
+        navigatorKey.currentState?.push(
+          MaterialPageRoute(builder: (_) => const ResetPasswordScreen2()),
+        );
       }
     });
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:randki/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
 
 /// ViewModel responsible for storing and managing search filters for places
 /// Allows setting parameters such as: category, tags, price range, distance from user, sorting type (by price or distance)

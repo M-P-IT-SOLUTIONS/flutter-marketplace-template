@@ -5,10 +5,10 @@ import 'package:http/http.dart' as http;
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/places_service.dart';
-import 'package:randki/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/places_service.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
 
 /// ViewModel responsible for managing places on the map
 /// Responsible for fetching places, setting markers, and handling user location
@@ -36,7 +36,8 @@ class PlacesModel extends ChangeNotifier {
   bool _isLoading = false;
   final int _pageSize = 20; // number of places per page
   int _pageNumber = 1; // current page number
-  bool _thereIsMore = true; // whether there are more places to fetch in the database
+  bool _thereIsMore =
+      true; // whether there are more places to fetch in the database
   bool abandonFetchingPlaces = false;
 
   /// Currently ongoing place fetch
@@ -61,7 +62,7 @@ class PlacesModel extends ChangeNotifier {
   Future<void> fetchFilteredPlaces({
     required bool buildMarkers,
     required BuildContext context,
-    bool getAll = false
+    bool getAll = false,
   }) async {
     if (_currentFetch != null) {
       return _currentFetch;
@@ -69,7 +70,7 @@ class PlacesModel extends ChangeNotifier {
 
     // no more places to fetch
     if (!_thereIsMore) {
-      return; 
+      return;
     }
 
     final completer = Completer<void>();
@@ -92,7 +93,12 @@ class PlacesModel extends ChangeNotifier {
     }
 
     Future<void> _fetchHelper() async {
-      final response = await _placesService.fetchFilteredPlaces(filter: filter, context: context, pageSize: _pageSize, pageNumber: _pageNumber);
+      final response = await _placesService.fetchFilteredPlaces(
+        filter: filter,
+        context: context,
+        pageSize: _pageSize,
+        pageNumber: _pageNumber,
+      );
 
       if (response is FetchListSuccess<Place>) {
         if (response.items.length < _pageSize) {
@@ -139,7 +145,10 @@ class PlacesModel extends ChangeNotifier {
   }
 
   /// Creates markers for places
-  Future<void> makeMarkers({List<Place>? newPlaces, required BuildContext context}) async {
+  Future<void> makeMarkers({
+    List<Place>? newPlaces,
+    required BuildContext context,
+  }) async {
     if (_buildingMarkers) {
       return; // already building markers
     }
@@ -388,7 +397,7 @@ class PlacesModel extends ChangeNotifier {
     _thereIsMore = true;
     notifyListeners();
   }
-  
+
   void increasePageNumber() {
     _pageNumber += 1;
     notifyListeners();

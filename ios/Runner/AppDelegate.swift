@@ -20,7 +20,10 @@ import flutter_local_notifications
       UNUserNotificationCenter.current().delegate = self
     }
 
-    GMSServices.provideAPIKey("AIzaSyDsIZ2sjzVsVPH8XSr75eLxeAF5PW6YZhE")
+    if let mapsAPIKey = Bundle.main.object(forInfoDictionaryKey: "MAPS_API_KEY") as? String,
+       !mapsAPIKey.isEmpty {
+      GMSServices.provideAPIKey(mapsAPIKey)
+    }
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

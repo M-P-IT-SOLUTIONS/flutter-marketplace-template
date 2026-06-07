@@ -1,9 +1,9 @@
-import 'package:randki/functions.dart';
-import 'package:randki/main.dart';
-import 'package:randki/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/functions.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:randki/services/logger_service.dart';
-import 'package:randki/models/place.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
 
 /// Service for handling the favorite_places table via Supabase.
 abstract class IFavoritePlacesService {
@@ -17,7 +17,7 @@ abstract class IFavoritePlacesService {
   Future<bool> toggleFavorite(String placeId);
 }
 
-  /// Service for handling the favorite_places table via Supabase.
+/// Service for handling the favorite_places table via Supabase.
 class FavoritePlacesServiceSupabase implements IFavoritePlacesService {
   static const String table = 'favorite_places';
 

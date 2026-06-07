@@ -1,14 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/screens/auth/send_reset_password_email_screen.dart';
-import 'package:randki/view_models/auth_view_model.dart';
-import 'package:randki/screens/auth/sign_up_screen.dart';
-import 'package:randki/screens/loading_screen.dart';
-import 'package:randki/views/components/auth_text_field.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/adapters/app_bar.dart';
-import 'package:randki/views/components/error_message_widget.dart';
+import 'package:flutter_marketplace_template/screens/auth/send_reset_password_email_screen.dart';
+import 'package:flutter_marketplace_template/view_models/auth_view_model.dart';
+import 'package:flutter_marketplace_template/screens/auth/sign_up_screen.dart';
+import 'package:flutter_marketplace_template/screens/loading_screen.dart';
+import 'package:flutter_marketplace_template/views/components/auth_text_field.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/views/components/error_message_widget.dart';
 
 /// Screen for signing in, where user enters email and password to log in,
 /// also has options to go to sign up screen and reset password screen
@@ -185,9 +185,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                             ),
                                             TextSpan(
                                               text:
-                                                  '${AppLocalizations.of(
-                                                    context,
-                                                  )!.dont_have_an_account_yet}\n',
+                                                  '${AppLocalizations.of(context)!.dont_have_an_account_yet}\n',
                                               style: const TextStyle(
                                                 fontFamily: 'Mplus1p',
                                                 fontWeight: FontWeight.w300,

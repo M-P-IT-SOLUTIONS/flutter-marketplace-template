@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:randki/models/message.dart';
-import 'package:randki/services/chat_service.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/user_service.dart';
+import 'package:flutter_marketplace_template/models/message.dart';
+import 'package:flutter_marketplace_template/services/chat_service.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-
 
 /// ViewModel managing the state of chat and messages.
 class ChatViewModel extends ChangeNotifier {
@@ -109,9 +108,7 @@ class ChatViewModel extends ChangeNotifier {
   }
 
   /// Sends a message with the given [text].
-  Future<void> sendMessage({
-    required String text,
-  }) async {
+  Future<void> sendMessage({required String text}) async {
     if (await _checkUserId() == false) {
       _error = 'User not logged in';
       notifyListeners();

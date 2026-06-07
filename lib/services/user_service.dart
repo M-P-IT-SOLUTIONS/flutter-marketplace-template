@@ -1,9 +1,9 @@
 import 'dart:typed_data';
-import 'package:randki/core/user_result.dart';
-import 'package:randki/main.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/logger_service.dart';
-import 'package:randki/models/app_user.dart' as domain;
+import 'package:flutter_marketplace_template/core/user_result.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
+import 'package:flutter_marketplace_template/models/app_user.dart' as domain;
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// Service for handling user-related operations.
@@ -56,7 +56,10 @@ class UserServiceSupabase implements IUserService {
       return UserSuccess();
     } catch (e) {
       Log.warning('An error occurred');
-      return UserError(errorMessage: 'An error occurred while creating user record: ${e.toString()}');
+      return UserError(
+        errorMessage:
+            'An error occurred while creating user record: ${e.toString()}',
+      );
     }
   }
 
@@ -74,9 +77,7 @@ class UserServiceSupabase implements IUserService {
           .select();
       return const UserSuccess();
     } catch (e) {
-      return const UserError(
-        errorMessage: 'Unable to change user nickname',
-      );
+      return const UserError(errorMessage: 'Unable to change user nickname');
     }
   }
 
@@ -232,9 +233,7 @@ class UserServiceSupabase implements IUserService {
       return await getUser();
     } catch (e) {
       Log.warning('profile picture upload error: $e');
-      return const UserError(
-        errorMessage: 'Failed to upload profile picture ',
-      );
+      return const UserError(errorMessage: 'Failed to upload profile picture ');
     }
   }
 
@@ -264,9 +263,7 @@ class UserServiceSupabase implements IUserService {
       return await getUser();
     } catch (e) {
       Log.warning('profile picture deletion error: $e');
-      return const UserError(
-        errorMessage: 'Failed to delete profile picture ',
-      );
+      return const UserError(errorMessage: 'Failed to delete profile picture ');
     }
   }
 

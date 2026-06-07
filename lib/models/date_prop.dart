@@ -1,12 +1,7 @@
-import 'package:randki/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
 
 /// Enum representing the type of people for a date
-enum PeopleType { 
-  single, 
-  couple, 
-  withFriends, 
-  family 
-}
+enum PeopleType { single, couple, withFriends, family }
 
 /// Class representing the properties of a date
 class DateProp {
@@ -38,27 +33,27 @@ class DateProp {
       }
     }
   }
-  
+
   factory DateProp.fromOneJson(Map<String, dynamic> json) {
     final List<dynamic> datePropsTags = json['date_props_tags'] ?? [];
 
-    final List<String> tags = datePropsTags
-        .map((item) => item['tags']?['tag'])
-        .where((tag) => tag != null)
-        .cast<String>()
-        .toList();
+    final List<String> tags =
+        datePropsTags
+            .map((item) => item['tags']?['tag'])
+            .where((tag) => tag != null)
+            .cast<String>()
+            .toList();
 
     return DateProp(
       idPlace: json['id_place'],
       title: json['title'],
       desc: json['desc'],
-      pricepp: (
-        json['pricepp_first'],
-        json['pricepp_second'],
-      ),
+      pricepp: (json['pricepp_first'], json['pricepp_second']),
       peopleType: PeopleType.values[json['people_type']],
       photo: (json['photo']),
-      category: Category.values.firstWhere((c) => c.name == json['category'].toString()),
+      category: Category.values.firstWhere(
+        (c) => c.name == json['category'].toString(),
+      ),
       tags: tags,
       time: (
         _parsePgInterval(json['time_first']),

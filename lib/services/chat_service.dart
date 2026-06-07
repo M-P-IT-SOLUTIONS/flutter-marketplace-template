@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:randki/functions.dart';
-import 'package:randki/main.dart';
-import 'package:randki/models/chat.dart';
-import 'package:randki/models/message.dart';
-import 'package:randki/models/message_reply.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/logger_service.dart';
-import 'package:randki/services/user_service.dart';
+import 'package:flutter_marketplace_template/functions.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/models/chat.dart';
+import 'package:flutter_marketplace_template/models/message.dart';
+import 'package:flutter_marketplace_template/models/message_reply.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
 
 /// Service for managing chats and messages.
 abstract class IChatService {
@@ -240,9 +240,8 @@ class ChatServiceSupabase implements IChatService {
 
   /// Fetches the last read timestamps for a user across all chats.
   @override
-  Future<FetchResponse<Map<String, (DateTime?, String?)>>> fetchLastReadTimestampsForUser({
-    required String userId,
-  }) async {
+  Future<FetchResponse<Map<String, (DateTime?, String?)>>>
+  fetchLastReadTimestampsForUser({required String userId}) async {
     try {
       final response = await supabase
           .from(chatParticipants)

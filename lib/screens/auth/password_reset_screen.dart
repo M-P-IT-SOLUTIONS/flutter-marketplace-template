@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:randki/adapters/app_bar.dart';
-import 'package:randki/views/components/auth_text_field.dart';
-import 'package:randki/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/views/components/auth_text_field.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
 
 /// Screen for resetting password, consists of 3 steps: entering email, entering code from email, setting new password
 /// Diferent look for password reset screen for replacing if you like it more

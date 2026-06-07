@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'package:randki/models/chat.dart';
+import 'package:flutter_marketplace_template/models/chat.dart';
 import 'package:flutter/material.dart';
-import 'package:randki/services/chat_service.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/places_service.dart';
-//import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/user_service.dart';
+import 'package:flutter_marketplace_template/services/chat_service.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/places_service.dart';
+//import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
 
 /// ViewModel managing the user's list of chats.
 class ChatsListViewModel extends ChangeNotifier {
@@ -84,22 +84,18 @@ class ChatsListViewModel extends ChangeNotifier {
         .fetchChatParticipantsIdForUser(userId: _userId!);
 
     if (chatIdToChatParticipantId is FetchOneFailure<Map<String, String>>) {
-
       _error = chatIdToChatParticipantId.message;
       return;
     } else if (chatIdToChatParticipantId
         is FetchOneSuccess<Map<String, String>>) {
-
       final userIdToName = await _placesService.fetchPlacesNames(
         ids: chatIdToChatParticipantId.item.values.toList(),
       );
 
       if (userIdToName is FetchOneFailure<Map<String, String?>>) {
-
         _error = userIdToName.message;
         return;
       } else if (userIdToName is FetchOneSuccess<Map<String, String?>>) {
-
         chatIdToChatParticipantId.item.forEach((chatId, participantId) {
           final name = userIdToName.item[participantId];
           _chatIdChatParticipantName[chatId] = name;
@@ -128,7 +124,9 @@ class ChatsListViewModel extends ChangeNotifier {
         _error = participantId.message;
         break;
       case FetchOneSuccess<String>():
-        final name = await _placesService.fetchPlaceName(placeId: participantId.item);
+        final name = await _placesService.fetchPlaceName(
+          placeId: participantId.item,
+        );
         switch (name) {
           case FetchOneFailure<String?>():
             _error = name.message;

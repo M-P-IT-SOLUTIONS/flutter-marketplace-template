@@ -1,4 +1,4 @@
-import 'package:randki/models/app_user.dart';
+import 'package:flutter_marketplace_template/models/app_user.dart';
 
 sealed class UserResult {
   const UserResult();

@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:randki/core/auth_result.dart';
-import 'package:randki/main.dart';
-import 'package:randki/services/notifications_service.dart';
+import 'package:flutter_marketplace_template/core/auth_result.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/services/notifications_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class IAuthService {
@@ -16,7 +16,7 @@ class AuthServiceSupabase implements IAuthService {
   final INotificationsService _notificationsService;
 
   AuthServiceSupabase(this._notificationsService);
-  
+
   /// Attempts to register a new user using an email address and password.
   ///
   /// Sends data to a custom Edge Function in Supabase (`register-user`),
@@ -117,7 +117,8 @@ class AuthServiceSupabase implements IAuthService {
   @override
   Future<void> logout() async {
     await _notificationsService.removeFcmTokenFromSupabase(
-        supabase.auth.currentUser!.id);
+      supabase.auth.currentUser!.id,
+    );
     await supabase.auth.signOut();
   }
 }

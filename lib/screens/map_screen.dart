@@ -3,13 +3,13 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/view_models/filter_view_model.dart';
-import 'package:randki/view_models/places_model.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/screens/place_screen.dart';
-import 'package:randki/views/components/filter_buttons.dart';
-import 'package:randki/views/components/map/map_pin_icon.dart';
-import 'package:randki/models/place.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/places_model.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/screens/place_screen.dart';
+import 'package:flutter_marketplace_template/views/components/filter_buttons.dart';
+import 'package:flutter_marketplace_template/views/components/map/map_pin_icon.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
 
 /// Screen displaying a Google Map with places as markers
 class MapScreen extends StatefulWidget {
@@ -123,17 +123,13 @@ class _MapScreenState extends State<MapScreen> {
           if (!mounted) return;
 
           await _mapViewModel.startUserLocationStream();
-          await fetchAllPlaces().then(
-            (_) => _setUsermarkerInfoWindow(),
-          );
+          await fetchAllPlaces().then((_) => _setUsermarkerInfoWindow());
         }
       };
       _mapViewModel.addListener(sub);
     } else {
       await _mapViewModel.startUserLocationStream();
-      await fetchAllPlaces().then(
-        (_) => _setUsermarkerInfoWindow(),
-      );
+      await fetchAllPlaces().then((_) => _setUsermarkerInfoWindow());
     }
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/view_models/favorite_places_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/favorite_places_view_model.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 /// Widget to display a place notice card
@@ -24,10 +24,7 @@ class PlaceNotice extends StatelessWidget {
     final textPainter = TextPainter(
       text: TextSpan(
         text: addressText,
-        style: TextStyle(
-          fontSize: 10 * textScale,
-          fontFamily: 'Mplus1p',
-        ),
+        style: TextStyle(fontSize: 10 * textScale, fontFamily: 'Mplus1p'),
       ),
       maxLines: 1,
       textDirection: TextDirection.ltr,
@@ -105,7 +102,10 @@ class PlaceNotice extends StatelessWidget {
                       },
                       shape: const CircleBorder(),
                       mini: true,
-                      backgroundColor: isFav ? Theme.of(context).colorScheme.tertiary : Theme.of(context).colorScheme.secondary,
+                      backgroundColor:
+                          isFav
+                              ? Theme.of(context).colorScheme.tertiary
+                              : Theme.of(context).colorScheme.secondary,
                       child: Icon(
                         isFav ? Icons.favorite : Icons.favorite_outline,
                         color: Theme.of(context).colorScheme.onSecondary,
@@ -149,7 +149,10 @@ class PlaceNotice extends StatelessWidget {
                         child: Row(
                           children: [
                             SizedBox(
-                              width: place.distance == null ? (addressWidth + 8).clamp(10, 140) : (addressWidth + 8).clamp(10, 90),
+                              width:
+                                  place.distance == null
+                                      ? (addressWidth + 8).clamp(10, 140)
+                                      : (addressWidth + 8).clamp(10, 90),
                               height: 16,
                               child: Text(
                                 place.address.split(',').first,
@@ -159,7 +162,8 @@ class PlaceNotice extends StatelessWidget {
                                   fontFamily: 'Mplus1p',
                                   fontSize: 10 * textScale,
                                   //fontWeight: FontWeight.w300,
-                                  color: Theme.of(context).colorScheme.onSecondary,
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
                                 ),
                               ),
                             ),
@@ -168,12 +172,21 @@ class PlaceNotice extends StatelessWidget {
                               Row(
                                 children: [
                                   Icon(
-                                   Symbols.distance,
-                                    color: Theme.of(context).colorScheme.onSecondary,
+                                    Symbols.distance,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.onSecondary,
                                     size: 16 * textScale,
                                   ),
                                   SizedBox(
-                                    width: (140 - ((addressWidth + 8).clamp(10, 90))) * textScale,
+                                    width:
+                                        (140 -
+                                            ((addressWidth + 8).clamp(
+                                              10,
+                                              90,
+                                            ))) *
+                                        textScale,
                                     height: 16,
                                     child: Text(
                                       place.distance! > 1000
@@ -183,7 +196,10 @@ class PlaceNotice extends StatelessWidget {
                                         fontFamily: 'Mplus1p',
                                         fontSize: 10 * textScale,
                                         //fontWeight: FontWeight.w300,
-                                        color: Theme.of(context).colorScheme.onSecondary,
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.onSecondary,
                                       ),
                                       overflow: TextOverflow.fade,
                                       softWrap: false,
@@ -212,7 +228,8 @@ class PlaceNotice extends StatelessWidget {
                               ),
                               child: Icon(
                                 Icons.local_cafe_outlined,
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                                 size: 16 * textScale,
                               ),
                             ),
@@ -222,7 +239,8 @@ class PlaceNotice extends StatelessWidget {
                                 fontFamily: 'Mplus1p',
                                 fontSize: 10 * textScale,
                                 //fontWeight: FontWeight.w300,
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                               ),
                             ),
                           ],
@@ -238,7 +256,8 @@ class PlaceNotice extends StatelessWidget {
                               ),
                               child: Icon(
                                 Icons.account_balance_wallet_outlined,
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                                 size: 16 * textScale,
                               ),
                             ),
@@ -248,7 +267,8 @@ class PlaceNotice extends StatelessWidget {
                                 fontFamily: 'Mplus1p',
                                 fontSize: 10 * textScale,
                                 //fontWeight: FontWeight.w300,
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                               ),
                             ),
                           ],

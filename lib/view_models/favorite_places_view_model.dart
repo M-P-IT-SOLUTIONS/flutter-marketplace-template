@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:randki/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:randki/services/favorite_places_service.dart';
-import 'package:randki/models/place.dart';
+import 'package:flutter_marketplace_template/services/favorite_places_service.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
 
 /// ViewModel managing the user's list of favorite places.
 class FavoritePlacesViewModel extends ChangeNotifier {
@@ -56,8 +56,8 @@ class FavoritePlacesViewModel extends ChangeNotifier {
     _error = null;
     notifyListeners();
     while (_thereIsMore) {
-      final response =
-          await _favoritePlacesService.fetchFavoritePlacesDetailedForCurrentUser(
+      final response = await _favoritePlacesService
+          .fetchFavoritePlacesDetailedForCurrentUser(
             pageSize: _pageSize,
             pageNumber: _pageNumber,
           );

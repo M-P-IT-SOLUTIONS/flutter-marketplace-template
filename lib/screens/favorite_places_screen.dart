@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/view_models/favorite_places_view_model.dart';
-import 'package:randki/adapters/place_notice.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/screens/place_screen.dart';
-import 'package:randki/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/view_models/favorite_places_view_model.dart';
+import 'package:flutter_marketplace_template/adapters/place_notice.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/screens/place_screen.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 /// Screen displaying the user's favorite places.
@@ -57,20 +57,17 @@ class _FavoritePlacesScreenState extends State<FavoritePlacesScreen> {
     final textScale = screenWidth / 400;
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: CustomAppBar(
-            showTitle: false,
-            showMenu: true,
-          ),
+      appBar: CustomAppBar(showTitle: false, showMenu: true),
       body: Consumer<FavoritePlacesViewModel>(
         builder: (context, favVM, _) {
           final favIds = favVM.favorites;
           final isFetching = favVM.isLoading;
 
           // Lista placeholderów, gdy fetch trwa
-          final filtered = isFetching
-              ? List.generate(5, (_) => PlaceExtension.placeholder())
-              : _filterFavorites(favVM.favoritePlaces, favIds);
-
+          final filtered =
+              isFetching
+                  ? List.generate(5, (_) => PlaceExtension.placeholder())
+                  : _filterFavorites(favVM.favoritePlaces, favIds);
 
           return ListView(
             padding: const EdgeInsets.all(16),
@@ -137,29 +134,29 @@ class _FavoritePlacesScreenState extends State<FavoritePlacesScreen> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                     Skeletonizer(
-                        enabled: isFetching,
-                        child: Column(
-                          children:
-                              filtered
-                                  .map(
-                                    (p) => GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (_) => PlaceScreen(place: p),
-                                          ),
-                                        );
-                                      },
-                                      child: PlaceNotice(
-                                        place: p,
-                                        screenWidth: screenWidth,
-                                      ),
+                    Skeletonizer(
+                      enabled: isFetching,
+                      child: Column(
+                        children:
+                            filtered
+                                .map(
+                                  (p) => GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (_) => PlaceScreen(place: p),
+                                        ),
+                                      );
+                                    },
+                                    child: PlaceNotice(
+                                      place: p,
+                                      screenWidth: screenWidth,
                                     ),
-                                    )
-                                  .toList(),
-                        ),
-                      )
+                                  ),
+                                )
+                                .toList(),
+                      ),
+                    ),
                   ],
                 ),
               ),

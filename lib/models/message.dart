@@ -1,4 +1,4 @@
-import 'package:randki/models/message_reply.dart';
+import 'package:flutter_marketplace_template/models/message_reply.dart';
 
 /// Model of a chat message.
 class Message {

@@ -1,15 +1,14 @@
-import 'package:randki/main.dart';
-import 'package:randki/services/auth_service.dart';
-import 'package:randki/services/chat_service.dart';
-import 'package:randki/services/logger_service.dart';
-import 'package:randki/services/user_service.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/services/auth_service.dart';
+import 'package:flutter_marketplace_template/services/chat_service.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
 
 /// Service for handling the user account deletion process.
 /// Implements a "soft delete" by marking the user's account as deleted in the database
 abstract class IDeleteUserUseCaseService {
   Future<void> softDeleteUserAccount();
 }
-
 
 /// Service for handling the user account deletion process.
 /// Implements a "soft delete" by marking the user's account as deleted via Supabase
@@ -18,7 +17,11 @@ class DeleteUserUseCaseServiceSupabase implements IDeleteUserUseCaseService {
   final IChatService _chatService;
   final IAuthService _authService;
 
-  DeleteUserUseCaseServiceSupabase(this._userService, this._chatService, this._authService);
+  DeleteUserUseCaseServiceSupabase(
+    this._userService,
+    this._chatService,
+    this._authService,
+  );
 
   @override
   Future<void> softDeleteUserAccount() async {

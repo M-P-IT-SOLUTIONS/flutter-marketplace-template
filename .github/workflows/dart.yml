@@ -19,11 +19,12 @@ jobs:
         with:
           flutter-version: '3.29.3'
 
-      - name: Create env file
+      - name: Create env files
         run: |
           cat <<EOF > map_key.env
           ${{ secrets.GMAPS_API_KEY }}
           EOF
+          : > .env
 
       - name: Install dependencies
         run: flutter pub get

@@ -3,10 +3,10 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/places_service.dart';
-import 'package:randki/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/places_service.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:supabase_flutter/supabase_flutter.dart';
 

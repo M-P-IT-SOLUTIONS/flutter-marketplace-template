@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:randki/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
 
-/// A custom text field widget for authentication forms, 
+/// A custom text field widget for authentication forms,
 /// supporting both email and password input with error handling.
 class AuthTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -33,25 +33,34 @@ class _AuthTextFieldState extends State<AuthTextField> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [ 
-        if(widget.isResetPassword && widget.isPassword) 
+      children: [
+        if (widget.isResetPassword && widget.isPassword)
           Text(
-             AppLocalizations.of(context)!.repeat_your_password,
+            AppLocalizations.of(context)!.repeat_your_password,
             style: TextStyle(
               fontFamily: 'Mplus1p',
               fontSize: 16,
               fontWeight: FontWeight.w300,
-              color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+              color:
+                  widget.errorMessage == null
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.error,
             ),
           ),
-        if((!widget.isResetPassword && widget.isPassword) || (!widget.isResetPassword && !widget.isPassword)) 
+        if ((!widget.isResetPassword && widget.isPassword) ||
+            (!widget.isResetPassword && !widget.isPassword))
           Text(
-            widget.isPassword ? AppLocalizations.of(context)!.password : AppLocalizations.of(context)!.email,
+            widget.isPassword
+                ? AppLocalizations.of(context)!.password
+                : AppLocalizations.of(context)!.email,
             style: TextStyle(
               fontFamily: 'Mplus1p',
               fontSize: 16,
               fontWeight: FontWeight.w300,
-              color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+              color:
+                  widget.errorMessage == null
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.error,
             ),
           ),
         SizedBox(
@@ -69,7 +78,10 @@ class _AuthTextFieldState extends State<AuthTextField> {
               fontFamily: 'Mplus1p',
               fontSize: 16,
               fontWeight: FontWeight.w300,
-              color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+              color:
+                  widget.errorMessage == null
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.error,
             ),
             decoration: InputDecoration(
               isDense: true,
@@ -81,25 +93,39 @@ class _AuthTextFieldState extends State<AuthTextField> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
-                      widget.isPassword ? Icons.lock_outline : Icons.email_outlined,
-                      color:widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+                      widget.isPassword
+                          ? Icons.lock_outline
+                          : Icons.email_outlined,
+                      color:
+                          widget.errorMessage == null
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).colorScheme.error,
                       size: 28,
                     ),
                     const SizedBox(width: 8),
                     Container(
                       width: 2,
                       height: 32,
-                      color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+                      color:
+                          widget.errorMessage == null
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).colorScheme.error,
                     ),
                   ],
                 ),
               ),
-              hintText: widget.isPassword ? "•••••" : AppLocalizations.of(context)!.email_hint_text,
+              hintText:
+                  widget.isPassword
+                      ? "•••••"
+                      : AppLocalizations.of(context)!.email_hint_text,
               hintStyle: TextStyle(
                 fontFamily: 'Mplus1p',
                 fontSize: 16,
                 fontWeight: FontWeight.w300,
-                color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+                color:
+                    widget.errorMessage == null
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.error,
               ),
               // Ikonka do pokazywania hasła
               suffixIcon:
@@ -111,8 +137,13 @@ class _AuthTextFieldState extends State<AuthTextField> {
                           });
                         },
                         icon: Icon(
-                          isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                          color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+                          isObscure
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined,
+                          color:
+                              widget.errorMessage == null
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Theme.of(context).colorScheme.error,
                           size: 28,
                         ),
                       )
@@ -120,21 +151,27 @@ class _AuthTextFieldState extends State<AuthTextField> {
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide(
-                  color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+                  color:
+                      widget.errorMessage == null
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.error,
                   width: 2,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
                 borderSide: BorderSide(
-                  color: widget.errorMessage == null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error, 
+                  color:
+                      widget.errorMessage == null
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.error,
                   width: 3,
                 ),
               ),
             ),
           ),
         ),
-      ]
+      ],
     );
   }
 }

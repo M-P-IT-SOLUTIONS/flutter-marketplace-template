@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:randki/main.dart';
-import 'package:randki/services/logger_service.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
 
 /// Service for managing push notifications.
 abstract class INotificationsService {

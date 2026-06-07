@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:randki/main.dart';
-import 'package:randki/screens/auth/welcome_screen.dart';
-import 'package:randki/screens/main/navigation_screen.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/screens/auth/welcome_screen.dart';
+import 'package:flutter_marketplace_template/screens/main/navigation_screen.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});

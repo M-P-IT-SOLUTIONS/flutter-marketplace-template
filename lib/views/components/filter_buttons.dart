@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/adapters/place_filter_dialog.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/screens/map_screen.dart';
-import 'package:randki/view_models/filter_view_model.dart';
-import 'package:randki/view_models/navigation_view_model.dart';
-import 'package:randki/view_models/places_model.dart';
+import 'package:flutter_marketplace_template/adapters/place_filter_dialog.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/screens/map_screen.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/navigation_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/places_model.dart';
 
 /// Component for filter and reset filter buttons used in places list and map.
 Widget filterButton(BuildContext context, double textScale) {

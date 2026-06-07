@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/view_models/filter_view_model.dart';
-import 'package:randki/view_models/places_model.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/places_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Redirects to mail with pre-filled address and subject
@@ -58,10 +58,13 @@ String formatDuration(Duration d) {
 
 /// Attempts to display permission dialog for user location access.
 /// Returns true if SnackBar with location permission denied is shown, false otherwise.
-Future<bool> checkAndShowUserLocationPermissionDenied({required FilterViewModel filterVM, required PlacesModel placesModel, required BuildContext context}) async {
+Future<bool> checkAndShowUserLocationPermissionDenied({
+  required FilterViewModel filterVM,
+  required PlacesModel placesModel,
+  required BuildContext context,
+}) async {
   // If no custom location, fetch or update user location
-  if (filterVM.searchNearbyUser == null ||
-      filterVM.searchNearbyUser == true) {
+  if (filterVM.searchNearbyUser == null || filterVM.searchNearbyUser == true) {
     placesModel.setIsLoading(true);
     await placesModel.updateUserMarker();
     placesModel.setIsLoading(false);

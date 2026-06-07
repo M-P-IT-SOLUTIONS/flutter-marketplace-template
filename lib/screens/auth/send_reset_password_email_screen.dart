@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/adapters/app_bar.dart';
-import 'package:randki/core/auth_result.dart';
-import 'package:randki/services/auth_service.dart';
-import 'package:randki/view_models/auth_view_model.dart';
-import 'package:randki/views/components/auth_text_field.dart';
-import 'package:randki/views/components/error_message_widget.dart';
-import 'package:randki/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/core/auth_result.dart';
+import 'package:flutter_marketplace_template/services/auth_service.dart';
+import 'package:flutter_marketplace_template/view_models/auth_view_model.dart';
+import 'package:flutter_marketplace_template/views/components/auth_text_field.dart';
+import 'package:flutter_marketplace_template/views/components/error_message_widget.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
 
 /// Screen for sending reset password email, where user enters email and receives link to reset password
 class SendResetPasswordEmailScreen extends StatefulWidget {
@@ -76,13 +76,12 @@ class _SendResetPasswordEmailScreenState
               ),
               Consumer<AuthViewModel>(
                 builder:
-                    (context, value, child) =>
-                        Column(
-                          children: [
-                            errorMessageWidget(value.emailErrorMessage, context),
-                            errorMessageWidget(value.errorMessage, context),
-                          ],
-                        ),
+                    (context, value, child) => Column(
+                      children: [
+                        errorMessageWidget(value.emailErrorMessage, context),
+                        errorMessageWidget(value.errorMessage, context),
+                      ],
+                    ),
               ),
 
               const SizedBox(height: 24),

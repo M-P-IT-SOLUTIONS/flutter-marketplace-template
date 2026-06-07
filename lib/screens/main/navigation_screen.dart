@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/view_models/navigation_view_model.dart';
-import 'package:randki/view_models/profile_view_model.dart';
-import 'package:randki/views/components/profile_avatar_widget.dart';
+import 'package:flutter_marketplace_template/view_models/navigation_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/profile_view_model.dart';
+import 'package:flutter_marketplace_template/views/components/profile_avatar_widget.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
-/// Main screen of the app, shown after user logs in, 
+/// Main screen of the app, shown after user logs in,
 /// with bottom navigation bar to switch between home, map and profile screen
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -88,7 +88,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
               height: 85,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Theme.of(context).colorScheme.surface, width: 4),
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.surface,
+                  width: 4,
+                ),
               ),
               child: SizedBox(
                 width: 80,
@@ -147,12 +150,20 @@ class _NavigationScreenState extends State<NavigationScreen> {
       NavigationDestination(icon: SizedBox.shrink(), label: ''),
 
       NavigationDestination(
-        icon: ProfileAvatarWidget(avatarUrl: avatarUrl, selected: false, radius: 20,),
+        icon: ProfileAvatarWidget(
+          avatarUrl: avatarUrl,
+          selected: false,
+          radius: 20,
+        ),
         label: '',
         selectedIcon: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ProfileAvatarWidget(avatarUrl: avatarUrl, selected: true, radius: 20),
+            ProfileAvatarWidget(
+              avatarUrl: avatarUrl,
+              selected: true,
+              radius: 20,
+            ),
             const SizedBox(height: 6),
             _underline(const Color.fromRGBO(0, 102, 255, 1)),
           ],

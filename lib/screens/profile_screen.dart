@@ -3,23 +3,23 @@ import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
-import 'package:randki/core/user_result.dart';
+import 'package:flutter_marketplace_template/core/user_result.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/services/auth_service.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/services/delete_user_use_case_service.dart';
-import 'package:randki/services/notifications_service.dart';
-import 'package:randki/services/user_service.dart';
-import 'package:randki/view_models/language_view_model.dart';
-import 'package:randki/view_models/profile_view_model.dart';
+import 'package:flutter_marketplace_template/services/auth_service.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/services/delete_user_use_case_service.dart';
+import 'package:flutter_marketplace_template/services/notifications_service.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
+import 'package:flutter_marketplace_template/view_models/language_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/profile_view_model.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:randki/view_models/favorite_places_view_model.dart';
-import 'package:randki/screens/favorite_places_screen.dart';
-import 'package:randki/views/components/profile_avatar_widget.dart';
-import 'package:randki/models/profile_preferences_enums.dart';
-import 'package:randki/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/view_models/favorite_places_view_model.dart';
+import 'package:flutter_marketplace_template/screens/favorite_places_screen.dart';
+import 'package:flutter_marketplace_template/views/components/profile_avatar_widget.dart';
+import 'package:flutter_marketplace_template/models/profile_preferences_enums.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
-import 'package:randki/view_models/theme_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/theme_view_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:permission_handler/permission_handler.dart'
     show
@@ -329,7 +329,9 @@ class ProfileScreen extends StatelessWidget {
                   title: AppLocalizations.of(context)!.delete_account,
                   color: const Color.fromRGBO(255, 59, 48, 1),
                   onPressed: () async {
-                    await context.read<IDeleteUserUseCaseService>().softDeleteUserAccount();
+                    await context
+                        .read<IDeleteUserUseCaseService>()
+                        .softDeleteUserAccount();
                   },
                   icon: Icons.delete_outlined,
                   confirmationRequired: true,

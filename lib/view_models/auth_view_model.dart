@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:randki/core/auth_result.dart';
-import 'package:randki/services/auth_service.dart';
-import 'package:randki/services/logger_service.dart';
-import 'package:randki/utils/validators.dart';
+import 'package:flutter_marketplace_template/core/auth_result.dart';
+import 'package:flutter_marketplace_template/services/auth_service.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
+import 'package:flutter_marketplace_template/utils/validators.dart';
 
 /// Provider responsible for login and registration logic.
 /// Stores the state of the last error that can be displayed in the UI.

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:randki/functions.dart';
-import 'package:randki/main.dart';
-import 'package:randki/models/category_tags_enums.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/services/fetch_response.dart';
-import 'package:randki/services/logger_service.dart';
+import 'package:flutter_marketplace_template/functions.dart';
+import 'package:flutter_marketplace_template/main.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/services/fetch_response.dart';
+import 'package:flutter_marketplace_template/services/logger_service.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 SupabaseClient get _supabase => Supabase.instance.client;
@@ -20,7 +21,9 @@ abstract class IPlacesService {
   });
 
   Future<FetchResponse<String?>> fetchPlaceName({required String placeId});
-  Future<FetchResponse<Map<String, String?>>> fetchPlacesNames({required List<String> ids});
+  Future<FetchResponse<Map<String, String?>>> fetchPlacesNames({
+    required List<String> ids,
+  });
 }
 
 /// Service for fetching places from Supabase based on various filters and criteria.
@@ -245,7 +248,9 @@ class PlacesServiceSupabase implements IPlacesService {
   }
 
   @override
-  Future<FetchResponse<String?>> fetchPlaceName({required String placeId}) async {
+  Future<FetchResponse<String?>> fetchPlaceName({
+    required String placeId,
+  }) async {
     try {
       final response =
           await _supabase

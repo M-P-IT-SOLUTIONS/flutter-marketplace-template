@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:randki/models/category_tags_enums.dart';
-import 'package:randki/models/date_prop.dart';
-import 'package:randki/models/menu_class.dart';
-import 'package:randki/screens/place_screen.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/models/date_prop.dart';
+import 'package:flutter_marketplace_template/models/menu_class.dart';
+import 'package:flutter_marketplace_template/screens/place_screen.dart';
 
 /// Class representing a place
 class Place {
@@ -21,8 +21,7 @@ class Place {
   String? igLink;
   String? fbLink;
   LatLng coordinates;
-  String?
-  localization;
+  String? localization;
   double? distance;
   List<String>? tags;
   List<DateProp>? datePropositions;
@@ -96,7 +95,9 @@ class Place {
         int.parse(json['pricepp_second'].toString()),
       ),
       menu: MenuClass.fromJson(json['menu']),
-      category: Category.values.firstWhere((c) => c.name == json['category'].toString()),
+      category: Category.values.firstWhere(
+        (c) => c.name == json['category'].toString(),
+      ),
       phoneNumber: json['phone_number'],
       emailAddress: json['email_address'],
       urlLink: json['url_link'],
@@ -109,17 +110,18 @@ class Place {
       localization: json['location'],
       distance: distance, // distance from the specified location
       isActive: json['is_active'],
-      paidUntil: json['paid_until'] != null ? DateTime.parse(json['paid_until']) : null,
+      paidUntil:
+          json['paid_until'] != null
+              ? DateTime.parse(json['paid_until'])
+              : null,
       rate: json['rate'] != null ? (json['rate'] as num).toDouble() : null,
       ownerId: json['owner_id'],
-      isNew: json['is_new'] ?? false, 
+      isNew: json['is_new'] ?? false,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
       datePropositions:
           json['date_props'].isNotEmpty
               ? List<DateProp>.from(
-                json['date_props'].map(
-                  (dp) => DateProp.fromOneJson(dp),
-                ),
+                json['date_props'].map((dp) => DateProp.fromOneJson(dp)),
               )
               : null,
     );
@@ -137,7 +139,9 @@ class Place {
         int.parse(json['pricepp_second'].toString()),
       ),
       menu: MenuClass.fromJson(json['menu']),
-      category: Category.values.firstWhere((c) => c.name == json['category'].toString()),
+      category: Category.values.firstWhere(
+        (c) => c.name == json['category'].toString(),
+      ),
       phoneNumber: json['phone_number'],
       emailAddress: json['email_address'],
       urlLink: json['url_link'],
@@ -149,18 +153,19 @@ class Place {
       ),
       localization: json['location'],
       isActive: json['is_active'],
-      paidUntil: json['paid_until'] != null ? DateTime.parse(json['paid_until']) : null,
+      paidUntil:
+          json['paid_until'] != null
+              ? DateTime.parse(json['paid_until'])
+              : null,
       rate: json['rate'] != null ? (json['rate'] as num).toDouble() : null,
       ownerId: json['owner_id'],
-      isNew: json['is_new'] ?? false, 
+      isNew: json['is_new'] ?? false,
       distance: null, // no distance info in ORM response
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
       datePropositions:
           json['date_props'].isNotEmpty
               ? List<DateProp>.from(
-                json['date_props'].map(
-                  (dp) => DateProp.fromOneJson(dp),
-                ),
+                json['date_props'].map((dp) => DateProp.fromOneJson(dp)),
               )
               : null,
     );
@@ -194,5 +199,3 @@ extension PlaceExtension on Place {
     );
   }
 }
-
-

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/screens/chats_list_screen.dart';
-import 'package:randki/services/auth_service.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/view_models/auth_view_model.dart';
-import 'package:randki/view_models/navigation_view_model.dart';
-import 'package:randki/adapters/language_dialog.dart';
+import 'package:flutter_marketplace_template/screens/chats_list_screen.dart';
+import 'package:flutter_marketplace_template/services/auth_service.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/view_models/auth_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/navigation_view_model.dart';
+import 'package:flutter_marketplace_template/adapters/language_dialog.dart';
 
 /// Custom AppBar widget with configurable options
 /// [showTitle] - whether to show the title
@@ -47,7 +47,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 onPressed: () {
                   context.read<AuthViewModel>().clearErrors();
                   Navigator.of(context).pop();
-                }
+                },
               )
               : null,
       title:
@@ -110,22 +110,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               itemBuilder: (BuildContext context) => _menuItems(context),
             ),
           ),
-      if (showChat)
-        Padding(
-          padding: const EdgeInsets.only(right: 12),
-          child: IconButton(
-            icon: Icon(
-              Icons.chat_outlined,
-              color: const Color.fromRGBO(16, 20, 94, 1),
-              size: 28 * textScale,
+        if (showChat)
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: IconButton(
+              icon: Icon(
+                Icons.chat_outlined,
+                color: const Color.fromRGBO(16, 20, 94, 1),
+                size: 28 * textScale,
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ChatsListScreen()),
+                );
+              },
             ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ChatsListScreen()),
-              );
-            },
           ),
-        ),
       ],
     );
   }
@@ -141,11 +141,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       color: Theme.of(context).colorScheme.onSecondary,
     );
 
-    PopupMenuItem<String> buildItem(
-      String value,
-      IconData icon,
-      String label,
-    ) {
+    PopupMenuItem<String> buildItem(String value, IconData icon, String label) {
       return PopupMenuItem(
         value: value,
         child: Center(

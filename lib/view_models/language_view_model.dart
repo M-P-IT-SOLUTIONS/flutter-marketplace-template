@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:randki/services/language_service.dart';
+import 'package:flutter_marketplace_template/services/language_service.dart';
 
 class LanguageViewModel extends ChangeNotifier {
   final ILanguageService _languageService;

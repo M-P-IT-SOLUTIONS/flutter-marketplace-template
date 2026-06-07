@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:randki/core/auth_result.dart';
+import 'package:flutter_marketplace_template/core/auth_result.dart';
 
 void main() {
   group('AuthResult', () {

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:randki/utils/validators.dart';
+import 'package:flutter_marketplace_template/utils/validators.dart';
 
 void main() {
   group('Validators', () {
@@ -13,10 +13,7 @@ void main() {
       final result = Validators.isValidEmail('john.doe@invalid');
 
       expect(result, isA<ValidationError>());
-      expect(
-        (result as ValidationError).message,
-        'Email has invalid format',
-      );
+      expect((result as ValidationError).message, 'Email has invalid format');
     });
 
     test('rejects passwords with spaces', () {

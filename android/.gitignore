@@ -15,4 +15,6 @@ key.properties
 **/*.jks
 
 local.defaults.properties
+!local.defaults.properties.example
 secrets.properties
+!secrets.properties.example

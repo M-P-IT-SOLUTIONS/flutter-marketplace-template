@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:randki/models/app_user.dart';
-import 'package:randki/core/user_result.dart';
-import 'package:randki/services/user_service.dart';
+import 'package:flutter_marketplace_template/models/app_user.dart';
+import 'package:flutter_marketplace_template/core/user_result.dart';
+import 'package:flutter_marketplace_template/services/user_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:randki/utils/validators.dart';
+import 'package:flutter_marketplace_template/utils/validators.dart';
 import 'dart:typed_data';
 
 class ProfileViewModel extends ChangeNotifier {

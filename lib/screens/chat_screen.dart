@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/adapters/app_bar.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/models/message.dart';
-import 'package:randki/models/message_reply.dart';
-import 'package:randki/view_models/chat_view_model.dart';
-import 'package:randki/view_models/chats_list_view_model.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/models/message.dart';
+import 'package:flutter_marketplace_template/models/message_reply.dart';
+import 'package:flutter_marketplace_template/view_models/chat_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/chats_list_view_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 /// Screen displaying a chat with a Place.
@@ -58,7 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
   /// Save last read message time in [ChatsListViewModel] and database if needed when exiting the screen
   Future<void> _saveLastReadIfNeeded() async {
     if (_lastReadMessageAt == null) return;
-    
+
     context.read<ChatsListViewModel>().markChatAsRead(
       chatId: widget.chatId,
       lastReadAt: _lastReadMessageAt!,
@@ -80,7 +80,7 @@ class _ChatScreenState extends State<ChatScreen> {
       },
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(242, 242, 244, 1),
-        appBar: CustomAppBar(showTitle: true, showMenu: false, showChat: false,),
+        appBar: CustomAppBar(showTitle: true, showMenu: false, showChat: false),
         body: _buildBody(),
       ),
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/adapters/app_bar.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/models/chat.dart';
-import 'package:randki/screens/chat_screen.dart';
-import 'package:randki/view_models/chats_list_view_model.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/models/chat.dart';
+import 'package:flutter_marketplace_template/screens/chat_screen.dart';
+import 'package:flutter_marketplace_template/view_models/chats_list_view_model.dart';
 
 /// Screen of the list of chats.
 class ChatsListScreen extends StatefulWidget {
@@ -41,7 +41,7 @@ class _ChatsListScreenState extends State<ChatsListScreen> {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(242, 242, 244, 1),
-      appBar: CustomAppBar(showTitle: true, showMenu: false, showChat: false,),
+      appBar: CustomAppBar(showTitle: true, showMenu: false, showChat: false),
       body: StreamBuilder<List<Chat>>(
         stream: chatsListVM.subscribeChatsUpdates(),
         builder: (context, snapshot) {
@@ -84,7 +84,7 @@ class _ChatsListScreenState extends State<ChatsListScreen> {
                           : chat.lastMessageAt!.isAfter(
                             chatsListVM.chatIdlastReadAt[chat.id]!.$1!,
                           ));
-              
+
               chatsListVM.checkChatName(chatId: chat.id);
 
               return _ChatTile(

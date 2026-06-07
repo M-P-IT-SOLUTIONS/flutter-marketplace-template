@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/adapters/place_notice.dart';
-import 'package:randki/functions.dart';
-import 'package:randki/screens/place_screen.dart';
-import 'package:randki/l10n/app_localizations.dart';
-import 'package:randki/view_models/filter_view_model.dart';
-import 'package:randki/view_models/places_model.dart';
-import 'package:randki/models/place.dart';
-import 'package:randki/views/components/filter_buttons.dart';
-import 'package:randki/adapters/app_bar.dart';
+import 'package:flutter_marketplace_template/adapters/place_notice.dart';
+import 'package:flutter_marketplace_template/functions.dart';
+import 'package:flutter_marketplace_template/screens/place_screen.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/places_model.dart';
+import 'package:flutter_marketplace_template/models/place.dart';
+import 'package:flutter_marketplace_template/views/components/filter_buttons.dart';
+import 'package:flutter_marketplace_template/adapters/app_bar.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:randki/views/components/search_text_field.dart';
+import 'package:flutter_marketplace_template/views/components/search_text_field.dart';
 
 /// Home screen displaying a list of places with filtering and sorting options
 class HomeScreen extends StatefulWidget {
@@ -444,9 +444,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     value: 'close',
                     enabled: false,
                     child: Column(
-                      mainAxisSize:
-                          MainAxisSize
-                              .min,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

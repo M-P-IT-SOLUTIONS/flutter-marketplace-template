@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:randki/services/theme_service.dart';
-import 'package:randki/models/profile_preferences_enums.dart';
+import 'package:flutter_marketplace_template/services/theme_service.dart';
+import 'package:flutter_marketplace_template/models/profile_preferences_enums.dart';
 
 class ThemeViewModel extends ChangeNotifier {
   final IThemeService _themeService;

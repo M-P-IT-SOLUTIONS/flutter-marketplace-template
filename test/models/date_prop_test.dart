@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:randki/models/category_tags_enums.dart';
-import 'package:randki/models/date_prop.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/models/date_prop.dart';
 
 void main() {
   group('DateProp', () {

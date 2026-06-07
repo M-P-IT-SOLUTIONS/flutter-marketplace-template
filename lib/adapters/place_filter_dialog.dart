@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_places_api_flutter/google_places_api_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:randki/models/category_tags_enums.dart';
-import 'package:randki/screens/map_screen.dart';
-import 'package:randki/view_models/filter_view_model.dart';
-import 'package:randki/view_models/navigation_view_model.dart';
-import 'package:randki/view_models/places_model.dart';
+import 'package:flutter_marketplace_template/models/category_tags_enums.dart';
+import 'package:flutter_marketplace_template/screens/map_screen.dart';
+import 'package:flutter_marketplace_template/view_models/filter_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/navigation_view_model.dart';
+import 'package:flutter_marketplace_template/view_models/places_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:randki/l10n/app_localizations.dart';
+import 'package:flutter_marketplace_template/l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -166,7 +166,8 @@ class _FilterState extends State<Filter> {
                               padding: EdgeInsets.only(right: 3),
                               child: Icon(
                                 categoryIcons[category],
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                                 size: 18 * textScale,
                               ),
                             ),
@@ -176,7 +177,8 @@ class _FilterState extends State<Filter> {
                                 fontFamily: 'Mplus1p',
                                 fontSize: 14 * textScale,
                                 fontWeight: FontWeight.w300,
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                               ),
                             ),
                           ],
@@ -186,14 +188,14 @@ class _FilterState extends State<Filter> {
                           filter.toggleCategory(isSelected, category);
                         },
                         showCheckmark: false,
-                        backgroundColor: Theme.of(context).colorScheme.secondary,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
                         selectedColor: Theme.of(context).colorScheme.tertiary,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                           side: BorderSide.none,
                         ),
                         side: BorderSide.none,
-                        
                       ),
                   ],
                 ),
@@ -253,7 +255,8 @@ class _FilterState extends State<Filter> {
                                 fontFamily: 'Mplus1p',
                                 fontSize: 14 * textScale,
                                 fontWeight: FontWeight.w300,
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                               ),
                             ),
                             selected: filter.selectedTags.contains(tag),
@@ -261,8 +264,10 @@ class _FilterState extends State<Filter> {
                                 (isSelected) =>
                                     filter.toggleTag(isSelected, tag),
                             showCheckmark: false,
-                            backgroundColor: Theme.of(context).colorScheme.secondary,
-                            selectedColor: Theme.of(context).colorScheme.tertiary,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.secondary,
+                            selectedColor:
+                                Theme.of(context).colorScheme.tertiary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                               side: BorderSide.none,
@@ -351,14 +356,16 @@ class _FilterState extends State<Filter> {
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 2,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 3,
                                   ),
                                 ),
@@ -416,14 +423,16 @@ class _FilterState extends State<Filter> {
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 2,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 3,
                                   ),
                                 ),
@@ -574,14 +583,16 @@ class _FilterState extends State<Filter> {
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 2,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     width: 3,
                                   ),
                                 ),
@@ -597,8 +608,7 @@ class _FilterState extends State<Filter> {
                                       .updateUserMarker();
                                 }
 
-                                final maxDistance =
-                                    int.tryParse(value);
+                                final maxDistance = int.tryParse(value);
                                 filter.setMaxDistance(maxDistance ?? 0);
                               },
                               style: TextStyle(
@@ -688,8 +698,7 @@ class _FilterState extends State<Filter> {
                           buildMarkers:
                               navigationModel.currentScreen is MapScreen,
                           context: context0,
-                          getAll:
-                              navigationModel.currentScreen is MapScreen,
+                          getAll: navigationModel.currentScreen is MapScreen,
                         );
                       }
                     },
@@ -867,7 +876,9 @@ class _LocationSelectorState extends State<LocationSelector> {
                           selectedOption = SelectedLocationOption.none;
                         });
                       } else {
-                        filterVM.setSearchNearbyUser(true); // to niepotrzebne, bo ustawia się w updateUserMarker, ale daje dla czytelności
+                        filterVM.setSearchNearbyUser(
+                          true,
+                        ); // to niepotrzebne, bo ustawia się w updateUserMarker, ale daje dla czytelności
                       }
                     } else {
                       filterVM.setSearchNearbyUser(true);
@@ -890,8 +901,8 @@ class _LocationSelectorState extends State<LocationSelector> {
               const SizedBox(width: 4),
               Text(
                 selectedOption == SelectedLocationOption.myLocation
-                ? AppLocalizations.of(context)!.use_my_location
-                : selectedOption == SelectedLocationOption.customLocation
+                    ? AppLocalizations.of(context)!.use_my_location
+                    : selectedOption == SelectedLocationOption.customLocation
                     ? AppLocalizations.of(context)!.choose_location
                     : AppLocalizations.of(context)!.no_location,
                 style: TextStyle(

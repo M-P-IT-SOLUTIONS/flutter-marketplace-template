@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:randki/models/app_user.dart';
+import 'package:flutter_marketplace_template/models/app_user.dart';
 
 void main() {
   group('AppUser', () {
